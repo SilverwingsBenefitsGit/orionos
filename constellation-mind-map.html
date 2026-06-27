@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orionos Constellation — Mind Map</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; background: #0a0a0f; color: #e8e8ec; padding: 2rem; }
+    
+    h1 { text-align: center; font-size: 2.5rem; margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #00d4ff, #7c3aed, #ec4899);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .sub { text-align: center; color: #8888a0; margin-bottom: 3rem; font-size: 1.1rem; }
+    
+    .tier { margin-bottom: 3rem; }
+    .tier-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px;
+      color: #00d4ff; margin-bottom: 1rem; font-weight: 600; padding-left: 0.5rem;
+      border-left: 3px solid #00d4ff; }
+    
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; }
+    
+    .card { background: #111118; border: 1px solid #2a2a3a; border-radius: 12px;
+      padding: 1.5rem; position: relative; overflow: hidden; }
+    .card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--accent); }
+    
+    .card h3 { font-size: 1.3rem; margin-bottom: 0.2rem; }
+    .card .tagline { color: var(--accent); font-size: 0.8rem; font-weight: 500; margin-bottom: 0.8rem; }
+    .card .role { color: #8888a0; font-size: 0.9rem; margin-bottom: 0.8rem; line-height: 1.5; }
+    
+    .stats { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.8rem; }
+    .stat { background: rgba(255,255,255,0.05); padding: 0.3rem 0.7rem; border-radius: 6px;
+      font-size: 0.75rem; color: #8888a0; }
+    .stat b { color: #e8e8ec; }
+    
+    .status { display: inline-block; padding: 0.25rem 0.7rem; border-radius: 100px;
+      font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+    .s-live { background: rgba(34,197,94,0.15); color: #22c55e; border: 1px solid rgba(34,197,94,0.3); }
+    .s-ship { background: rgba(0,212,255,0.15); color: #00d4ff; border: 1px solid rgba(0,212,255,0.3); }
+    .s-build { background: rgba(245,158,11,0.15); color: #f59e0b; border: 1px solid rgba(245,158,11,0.3); }
+    .s-concept { background: rgba(136,136,160,0.15); color: #8888a0; border: 1px solid rgba(136,136,160,0.3); }
+    
+    .needs { margin-top: 0.8rem; padding-top: 0.8rem; border-top: 1px solid #2a2a3a; }
+    .needs h4 { font-size: 0.75rem; color: #00d4ff; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.4rem; }
+    .needs ul { list-style: none; padding: 0; }
+    .needs li { font-size: 0.8rem; color: #8888a0; padding: 0.15rem 0; }
+    .needs li::before { content: '→ '; color: #00d4ff; }
+    
+    .flow { background: #111118; border: 1px solid #2a2a3a; border-radius: 12px;
+      padding: 2rem; margin: 2rem 0; text-align: center; }
+    .flow h2 { margin-bottom: 1rem; }
+    .flow-diagram { font-family: 'Courier New', monospace; font-size: 0.9rem;
+      color: #00d4ff; line-height: 2; }
+    
+    .priority-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    .priority-table th { text-align: left; padding: 0.8rem; color: #00d4ff;
+      border-bottom: 2px solid #2a2a3a; font-size: 0.8rem; text-transform: uppercase;
+      letter-spacing: 1px; }
+    .priority-table td { padding: 0.8rem; border-bottom: 1px solid #1a1a24;
+      font-size: 0.9rem; }
+    .priority-table tr:hover { background: rgba(0,212,255,0.05); }
+    
+    .p-now { color: #ef4444; font-weight: 700; }
+    .p-week { color: #f59e0b; font-weight: 600; }
+    .p-month { color: #22c55e; }
+    .p-later { color: #8888a0; }
+
+    .footer { text-align: center; margin-top: 3rem; padding-top: 2rem;
+      border-top: 1px solid #2a2a3a; color: #8888a0; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+
+<h1>THE ORIONOS CONSTELLATION</h1>
+<p class="sub">Full Venture Audit &amp; Mind Map — June 2026<br>
+<em>"We build AI that does real work."</em></p>
+
+<!-- ═══════════════════ TIER 1: LIVE & REVENUE ═══════════════════ -->
+<div class="tier">
+  <div class="tier-label">Tier 1 — Live &amp; Making Money</div>
+  <div class="grid">
+    
+    <div class="card" style="--accent: #22c55e;">
+      <h3>Silverwings Benefits</h3>
+      <div class="tagline" style="color:#22c55e;">The commercial proof point</div>
+      <div class="role">AI-powered benefit claims processing. 40 staff, £120k/mo revenue, 110+ Trustpilot reviews. ITV campaign launching August 1st.</div>
+      <div class="stats">
+        <span class="stat"><b>23,487</b> files</span>
+        <span class="stat"><b>£120k</b>/mo revenue</span>
+        <span class="stat"><b>40</b> staff</span>
+      </div>
+      <span class="status s-live">Production</span>
+    </div>
+    
+    <div class="card" style="--accent: #22c55e;">
+      <h3>Eve &amp; Voice Agents</h3>
+      <div class="tagline" style="color:#22c55e;">The voice of the operation</div>
+      <div class="role">Production voice AI. Triage calls, outbound lead calling, appointment booking. Deepgram + OpenAI + Cartesia pipeline. Sub-second latency.</div>
+      <div class="stats">
+        <span class="stat"><b>5,691</b> files</span>
+        <span class="stat">Deepgram STT</span>
+        <span class="stat">Cartesia TTS</span>
+      </div>
+      <span class="status s-live">Deployed</span>
+    </div>
+    
+    <div class="card" style="--accent: #22c55e;">
+      <h3>Nova CRM / OS</h3>
+      <div class="tagline" style="color:#22c55e;">The business brain on GCP</div>
+      <div class="role">Autonomous venture operating system. 90+ service modules. CRM, telephony, email, video, venture scoring, domain orchestration. Running on GCP Cloud Run.</div>
+      <div class="stats">
+        <span class="stat"><b>880</b> files</span>
+        <span class="stat"><b>90+</b> services</span>
+        <span class="stat">GCP deployed</span>
+      </div>
+      <span class="status s-live">Production</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ TIER 2: NEARLY SHIPPABLE ═══════════════════ -->
+<div class="tier">
+  <div class="tier-label">Tier 2 — Ship This Month</div>
+  <div class="grid">
+    
+    <div class="card" style="--accent: #00d4ff;">
+      <h3>Thuban</h3>
+      <div class="tagline" style="color:#00d4ff;">Code Health Engine — thuban.dev</div>
+      <div class="role">AI hallucination detection, ghost code, tech debt, architecture drift. 17+ CLI commands, zero deps. Free/Pro/Team/Enterprise tiers.</div>
+      <div class="stats">
+        <span class="stat"><b>12,972</b> lines</span>
+        <span class="stat"><b>17</b> commands</span>
+        <span class="stat">v0.3.0</span>
+      </div>
+      <span class="status s-ship">Ship-Ready</span>
+      <div class="needs">
+        <h4>To Ship</h4>
+        <ul>
+          <li>IONOS DNS A record (one record!)</li>
+          <li>npm publish</li>
+          <li>Stripe connect for payments</li>
+          <li>Fix monorepo false positives</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="card" style="--accent: #00d4ff;">
+      <h3>Praxis Human</h3>
+      <div class="tagline" style="color:#00d4ff;">Human Operating System</div>
+      <div class="role">Compiles human profiles into machine-usable records. State resolution, lineage tracking, doctrine capture. 17 passing tests. VS Code extension. Web UI.</div>
+      <div class="stats">
+        <span class="stat"><b>30+</b> files</span>
+        <span class="stat"><b>9</b> profiles</span>
+        <span class="stat"><b>17</b> tests pass</span>
+      </div>
+      <span class="status s-ship">MVP Ready</span>
+      <div class="needs">
+        <h4>To Ship</h4>
+        <ul>
+          <li>Domain + trademark</li>
+          <li>pip/npm publish</li>
+          <li>More connectors (Slack, email)</li>
+          <li>Marketing site</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="card" style="--accent: #00d4ff;">
+      <h3>AlignAI</h3>
+      <div class="tagline" style="color:#00d4ff;">AI Fitness Form Coach</div>
+      <div class="role">React Native pose tracking. MoveNet skeleton overlay, real-time form scoring (squats), rep counting with haptic feedback. Phase 1 complete.</div>
+      <div class="stats">
+        <span class="stat"><b>41</b> files</span>
+        <span class="stat">React Native</span>
+        <span class="stat">TFLite</span>
+      </div>
+      <span class="status s-ship">MVP Ready</span>
+      <div class="needs">
+        <h4>To Ship</h4>
+        <ul>
+          <li>Phase 2: more exercises</li>
+          <li>App Store submission</li>
+          <li>Supabase backend</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ TIER 3: BUILDING ═══════════════════ -->
+<div class="tier">
+  <div class="tier-label">Tier 3 — Active Build</div>
+  <div class="grid">
+    
+    <div class="card" style="--accent: #f59e0b;">
+      <h3>Orion</h3>
+      <div class="tagline" style="color:#f59e0b;">The Mothership — 360,000 lines</div>
+      <div class="role">THE autonomous AI build engine. Senate (9-model routing), Forge, Craclon, Prometheus, Citadel, Scout Swarm, Cartography, Healing Loop, Venture Foundry, Intent Generator. The machine that builds machines.</div>
+      <div class="stats">
+        <span class="stat"><b>360,846</b> lines</span>
+        <span class="stat"><b>2,979</b> files</span>
+        <span class="stat"><b>9</b> AI providers</span>
+      </div>
+      <span class="status s-build">Active / Needs Cleanup</span>
+      <div class="needs">
+        <h4>To Ship As Product</h4>
+        <ul>
+          <li>Extract venture foundry into Bellatrix/Saiph</li>
+          <li>Clean junk files from root</li>
+          <li>Refresh expired API keys</li>
+          <li>Documentation</li>
+          <li>Decide: ship Orion itself or use it internally?</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="card" style="--accent: #f59e0b;">
+      <h3>Saiph</h3>
+      <div class="tagline" style="color:#f59e0b;">AI Venture Foundry — Business in a Box</div>
+      <div class="role">Takes a venture spec JSON, automates: domain, DNS, SSL, trademark, Stripe, Google Workspace, GitHub, ads, analytics. 15-task pipeline.</div>
+      <div class="stats">
+        <span class="stat"><b>758</b> lines</span>
+        <span class="stat"><b>15</b> tasks</span>
+        <span class="stat">Ported from Orion</span>
+      </div>
+      <span class="status s-build">Early MVP</span>
+      <div class="needs">
+        <h4>To Ship</h4>
+        <ul>
+          <li>Real API integrations</li>
+          <li>Kill-shot market analysis</li>
+          <li>Domain + trademark</li>
+          <li>Custom LLM or Verdent under the hood</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="card" style="--accent: #f59e0b;">
+      <h3>Mintaka</h3>
+      <div class="tagline" style="color:#f59e0b;">Creative Intelligence OS</div>
+      <div class="role">Brand Brain + Ad Critic. Scores ad creative across 8 dimensions. Generates briefs. Validates brand compliance. Text-based MVP.</div>
+      <div class="stats">
+        <span class="stat"><b>1,037</b> lines</span>
+        <span class="stat"><b>8</b> scoring dimensions</span>
+        <span class="stat">CLI ready</span>
+      </div>
+      <span class="status s-build">Early MVP</span>
+      <div class="needs">
+        <h4>To Ship</h4>
+        <ul>
+          <li>AI model integration for real critique</li>
+          <li>Video analysis (Gemini/Twelve Labs)</li>
+          <li>Campaign tracking</li>
+          <li>Web UI</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="card" style="--accent: #f59e0b;">
+      <h3>Navisynth</h3>
+      <div class="tagline" style="color:#f59e0b;">Synthetic Training Engine</div>
+      <div class="role">Voice AI testing and certification. FastAPI + Next.js + PostgreSQL. Recording ingestion, transcript processing, triage simulation, benchmarking across voice stacks.</div>
+      <div class="stats">
+        <span class="stat"><b>1,030</b> files</span>
+        <span class="stat">FastAPI + Next.js</span>
+        <span class="stat">Docker ready</span>
+      </div>
+      <span class="status s-build">Foundation / Phase 0</span>
+      <div class="needs">
+        <h4>To Ship</h4>
+        <ul>
+          <li>Real provider adapters (Deepgram, AssemblyAI)</li>
+          <li>Cloud Tasks routing</li>
+          <li>Production deployment</li>
+          <li>Domain + trademark</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="card" style="--accent: #f59e0b;">
+      <h3>Watchdog</h3>
+      <div class="tagline" style="color:#f59e0b;">Business Nervous System as a Service</div>
+      <div class="role">Self-assembling business monitoring. Plug in your CRM/ERP/email/payments, Watchdog maps everything, builds a real-time dashboard, learns your patterns, auto-heals.</div>
+      <div class="stats">
+        <span class="stat">Proven in Silverwings</span>
+        <span class="stat">Needs extraction</span>
+      </div>
+      <span class="status s-build">Proven Concept</span>
+      <div class="needs">
+        <h4>To Ship</h4>
+        <ul>
+          <li>Extract from Nova/Orion into standalone</li>
+          <li>Multi-tenant architecture</li>
+          <li>OAuth connector library</li>
+          <li>Domain: watchdog.ai / getwatchdog.io</li>
+          <li>Drop into Nova first as proof</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ TIER 4: CONCEPT ═══════════════════ -->
+<div class="tier">
+  <div class="tier-label">Tier 4 — Concept / Future</div>
+  <div class="grid">
+    
+    <div class="card" style="--accent: #8888a0;">
+      <h3>Imaginarium</h3>
+      <div class="tagline" style="color:#8888a0;">Human Continuity Compiler</div>
+      <div class="role">Captures a human life as structured, consented data points. Memory, reasoning, voice, presence — preserved beyond biology. The most ambitious project.</div>
+      <span class="status s-concept">Concept</span>
+    </div>
+    
+    <div class="card" style="--accent: #8888a0;">
+      <h3>Rent-a-Dev</h3>
+      <div class="tagline" style="color:#8888a0;">AI Development Squad</div>
+      <div class="role">Compiled developer profiles powered by PraxisHuman. Embedded in client workflows. Concept only.</div>
+      <span class="status s-concept">Concept</span>
+    </div>
+    
+    <div class="card" style="--accent: #8888a0;">
+      <h3>TradePilot</h3>
+      <div class="tagline" style="color:#8888a0;">AI for Tradespeople</div>
+      <div class="role">Quotes, voice agents, job management for trades. One-line README.</div>
+      <span class="status s-concept">Placeholder</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ THE FLOW ═══════════════════ -->
+<div class="flow">
+  <h2>The Autonomous Venture Loop</h2>
+  <div class="flow-diagram">
+    IDEA → ORION (evaluates) → SAIPH (builds infra) → THUBAN (checks code)<br>
+    → MINTAKA (launches ads) → EVE/NAVI (deploys agents) → WATCHDOG (monitors)<br>
+    → PRAXIS (captures learning) → ORION (improves) → NEXT VENTURE<br><br>
+    <span style="color: #ec4899;">∞ The loop closes. The system learns. Every venture makes the next one better.</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ PRIORITY TABLE ═══════════════════ -->
+<h2 style="margin: 2rem 0 1rem;">Action Priority — What Needs Doing</h2>
+<table class="priority-table">
+  <tr><th>Priority</th><th>Action</th><th>Product</th><th>Notes</th></tr>
+  <tr><td class="p-now">TODAY</td><td>IONOS A record for thuban.dev</td><td>Thuban</td><td>One DNS record. 185.199.108.153</td></tr>
+  <tr><td class="p-now">TODAY</td><td>Trademark Orionos</td><td>Orionos.ai</td><td>Parent brand — protect first</td></tr>
+  <tr><td class="p-now">TODAY</td><td>npm publish thuban</td><td>Thuban</td><td>npm login + npm publish</td></tr>
+  <tr><td class="p-week">THIS WEEK</td><td>Stripe account for Thuban</td><td>Thuban</td><td>stripe.com — get API keys</td></tr>
+  <tr><td class="p-week">THIS WEEK</td><td>Refresh Orion API keys</td><td>Orion</td><td>Grok, Perplexity, Anthropic model fix</td></tr>
+  <tr><td class="p-week">THIS WEEK</td><td>Trademark Saiph + Mintaka</td><td>Both</td><td>Class 9</td></tr>
+  <tr><td class="p-week">THIS WEEK</td><td>Watchdog domain search</td><td>Watchdog</td><td>watchdog.ai / getwatchdog.io</td></tr>
+  <tr><td class="p-month">THIS MONTH</td><td>Drop Watchdog into Nova</td><td>Watchdog</td><td>Prove it on Silverwings first</td></tr>
+  <tr><td class="p-month">THIS MONTH</td><td>Thuban marketing launch</td><td>Thuban</td><td>Dev.to, LinkedIn, Product Hunt</td></tr>
+  <tr><td class="p-month">THIS MONTH</td><td>Orion cleanup + API key refresh</td><td>Orion</td><td>Remove junk files, fix models</td></tr>
+  <tr><td class="p-month">THIS MONTH</td><td>Verdent partnership NDA</td><td>All</td><td>Structure before sharing deep</td></tr>
+  <tr><td class="p-later">Q3 2026</td><td>Mintaka AI integration</td><td>Mintaka</td><td>Real video critique with Gemini</td></tr>
+  <tr><td class="p-later">Q3 2026</td><td>Saiph full API automation</td><td>Saiph</td><td>Stripe, Google, Cloudflare APIs</td></tr>
+  <tr><td class="p-later">Q3 2026</td><td>Fine-tuned Orion Mind LLM</td><td>Orion</td><td>Llama/Mistral fine-tune on build data</td></tr>
+  <tr><td class="p-later">Q3 2026</td><td>Imaginarium v0.1</td><td>Imaginarium</td><td>Compile Craig v0.1</td></tr>
+</table>
+
+<!-- ═══════════════════ TOTALS ═══════════════════ -->
+<div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin: 3rem 0;
+  text-align: center;">
+  <div style="background: #111118; border: 1px solid #2a2a3a; border-radius: 12px; padding: 1.5rem;">
+    <div style="font-size: 2.5rem; font-weight: 800; color: #00d4ff;">18</div>
+    <div style="color: #8888a0; font-size: 0.85rem;">GitHub Repos</div>
+  </div>
+  <div style="background: #111118; border: 1px solid #2a2a3a; border-radius: 12px; padding: 1.5rem;">
+    <div style="font-size: 2.5rem; font-weight: 800; color: #22c55e;">~400k</div>
+    <div style="color: #8888a0; font-size: 0.85rem;">Lines of Code</div>
+  </div>
+  <div style="background: #111118; border: 1px solid #2a2a3a; border-radius: 12px; padding: 1.5rem;">
+    <div style="font-size: 2.5rem; font-weight: 800; color: #7c3aed;">12</div>
+    <div style="color: #8888a0; font-size: 0.85rem;">Distinct Products</div>
+  </div>
+  <div style="background: #111118; border: 1px solid #2a2a3a; border-radius: 12px; padding: 1.5rem;">
+    <div style="font-size: 2.5rem; font-weight: 800; color: #ec4899;">1</div>
+    <div style="color: #8888a0; font-size: 0.85rem;">Founder</div>
+  </div>
+</div>
+
+<div class="footer">
+  <p><strong>ORIONOS.AI</strong> — The AI Venture Foundry</p>
+  <p style="margin-top: 0.5rem;">Built by Craig Lowther. One founder. 400,000 lines. 12 products. The constellation is real.</p>
+  <p style="margin-top: 1rem; font-size: 0.75rem;">Generated June 27, 2026 — For Kenny, Darren &amp; the Verdent team</p>
+</div>
+
+</body>
+</html>
