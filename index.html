@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orionos.ai — The AI Venture Foundry</title>
+  <meta name="description" content="Orionos.ai builds AI-native products that solve real problems. From code health to creative intelligence to voice agents. We build, we ship, we scale.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #111118;
+      --bg3: #1a1a24;
+      --text: #e8e8ec;
+      --text-dim: #8888a0;
+      --accent: #00d4ff;
+      --accent2: #7c3aed;
+      --accent3: #f59e0b;
+      --green: #22c55e;
+      --red: #ef4444;
+      --pink: #ec4899;
+      --border: #2a2a3a;
+      --glow: rgba(0, 212, 255, 0.15);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── Starfield Background ─────────────────────── */
+    .starfield {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .star {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle var(--duration) ease-in-out infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: var(--min-opacity); }
+      50% { opacity: var(--max-opacity); }
+    }
+
+    /* ─── Layout ───────────────────────────────────── */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ─── Nav ──────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(10, 10, 15, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 2px;
+    }
+
+    .nav-logo span { color: var(--text-dim); font-weight: 400; }
+
+    .nav-links a {
+      color: var(--text-dim);
+      text-decoration: none;
+      margin-left: 2rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-cta {
+      background: var(--accent) !important;
+      color: var(--bg) !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 6px;
+      font-weight: 600 !important;
+    }
+
+    /* ─── Hero ─────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 0.4rem 1.2rem;
+      background: rgba(0, 212, 255, 0.1);
+      border: 1px solid rgba(0, 212, 255, 0.3);
+      border-radius: 100px;
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      letter-spacing: 1px;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 50%, var(--pink) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      color: var(--text-dim);
+      max-width: 680px;
+      margin-bottom: 3rem;
+      line-height: 1.7;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .hero-stat-label {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      margin-top: 0.3rem;
+    }
+
+    /* ─── Sections ─────────────────────────────────── */
+    section {
+      padding: 6rem 0;
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    section h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      color: var(--text-dim);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin-bottom: 3rem;
+    }
+
+    /* ─── Venture Grid ─────────────────────────────── */
+    .venture-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .venture-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .venture-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0, 212, 255, 0.1);
+    }
+
+    .venture-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: var(--card-accent, var(--accent));
+    }
+
+    .venture-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .venture-card h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .venture-tagline {
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .venture-card p {
+      color: var(--text-dim);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .venture-status {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .status-live { background: rgba(34, 197, 94, 0.15); color: var(--green); border: 1px solid rgba(34, 197, 94, 0.3); }
+    .status-beta { background: rgba(0, 212, 255, 0.15); color: var(--accent); border: 1px solid rgba(0, 212, 255, 0.3); }
+    .status-building { background: rgba(245, 158, 11, 0.15); color: var(--accent3); border: 1px solid rgba(245, 158, 11, 0.3); }
+    .status-concept { background: rgba(136, 136, 160, 0.15); color: var(--text-dim); border: 1px solid rgba(136, 136, 160, 0.3); }
+
+    .venture-link {
+      display: inline-block;
+      margin-top: 1rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .venture-link:hover { text-decoration: underline; }
+
+    /* ─── Philosophy ───────────────────────────────── */
+    .philosophy {
+      background: var(--bg2);
+      border-radius: 20px;
+      padding: 4rem;
+      border: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+
+    .philosophy blockquote {
+      font-size: 1.8rem;
+      font-weight: 300;
+      line-height: 1.5;
+      color: var(--text);
+      font-style: italic;
+      border-left: 3px solid var(--accent);
+      padding-left: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .philosophy cite {
+      color: var(--text-dim);
+      font-size: 0.95rem;
+      font-style: normal;
+    }
+
+    /* ─── Submit Idea ──────────────────────────────── */
+    .submit-section {
+      text-align: center;
+      padding: 6rem 0;
+    }
+
+    .submit-section h2 {
+      margin-bottom: 1rem;
+    }
+
+    .submit-section p {
+      color: var(--text-dim);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      font-size: 1.1rem;
+    }
+
+    .submit-form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .submit-form input,
+    .submit-form textarea {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.2rem;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .submit-form input:focus,
+    .submit-form textarea:focus {
+      border-color: var(--accent);
+    }
+
+    .submit-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      background: var(--accent);
+      color: var(--bg);
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .submit-btn:hover {
+      background: #00b8e0;
+      transform: translateY(-2px);
+    }
+
+    /* ─── Footer ───────────────────────────────────── */
+    footer {
+      padding: 3rem 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    footer p {
+      color: var(--text-dim);
+      font-size: 0.85rem;
+    }
+
+    .footer-logo {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links {
+      margin: 1rem 0;
+    }
+
+    .footer-links a {
+      color: var(--text-dim);
+      text-decoration: none;
+      margin: 0 1rem;
+      font-size: 0.85rem;
+    }
+
+    .footer-links a:hover { color: var(--accent); }
+
+    /* ─── Constellation Line ───────────────────────── */
+    .constellation-line {
+      width: 100%;
+      height: 200px;
+      margin: 2rem 0;
+      position: relative;
+    }
+
+    .constellation-line svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* ─── Built By Badge (for other sites) ─────────── */
+    .built-by-orionos {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      background: rgba(10, 10, 15, 0.8);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      color: var(--text-dim);
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .built-by-orionos:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .built-by-orionos .dot {
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    /* ─── Responsive ───────────────────────────────── */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+      .hero-stats { flex-direction: column; gap: 1.5rem; }
+      .venture-grid { grid-template-columns: 1fr; }
+      .philosophy { padding: 2rem; }
+      .philosophy blockquote { font-size: 1.3rem; }
+      nav { padding: 0.8rem 1rem; }
+      .nav-links { display: none; }
+    }
+
+    /* ─── Animate In ───────────────────────────────── */
+    .animate-in {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+    .delay-5 { animation-delay: 0.5s; }
+    .delay-6 { animation-delay: 0.6s; }
+
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Starfield -->
+<div class="starfield" id="starfield"></div>
+
+<!-- Nav -->
+<nav>
+  <a href="#" class="nav-logo">ORIONOS<span>.ai</span></a>
+  <div class="nav-links">
+    <a href="#ventures">Ventures</a>
+    <a href="#philosophy">Philosophy</a>
+    <a href="#submit" class="nav-cta">Submit an Idea</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-badge animate-in">THE AI VENTURE FOUNDRY</div>
+  <h1 class="animate-in delay-1">We build AI that<br>does real work.</h1>
+  <p class="animate-in delay-2">
+    Orionos.ai is a constellation of AI products built to solve real problems
+    for real businesses. No hype. No vapourware. Working software that earns money.
+  </p>
+  <div class="hero-stats animate-in delay-3">
+    <div class="hero-stat">
+      <div class="hero-stat-number">7</div>
+      <div class="hero-stat-label">Active Ventures</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-number">30k+</div>
+      <div class="hero-stat-label">Lines of Code</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-number">1</div>
+      <div class="hero-stat-label">Founder</div>
+    </div>
+  </div>
+</section>
+
+<!-- Ventures -->
+<section id="ventures">
+  <div class="container">
+    <div class="section-label animate-in">The Constellation</div>
+    <h2 class="animate-in delay-1">What We've Built</h2>
+    <p class="subtitle animate-in delay-2">Every product in the constellation solves a different problem. All built by one founder using AI as a force multiplier.</p>
+
+    <div class="venture-grid">
+
+      <div class="venture-card animate-in delay-1" style="--card-accent: #22c55e;">
+        <div class="venture-icon">&#9733;</div>
+        <h3>Silverwings Benefits</h3>
+        <div class="venture-tagline">The commercial proof point</div>
+        <p>AI-powered benefit claims processing for UK citizens. 40 staff, £120k monthly revenue, 110+ Trustpilot reviews. Voice AI agents, automated form submission, real-time operations dashboards.</p>
+        <span class="venture-status status-live">Live &amp; Revenue</span>
+      </div>
+
+      <div class="venture-card animate-in delay-2" style="--card-accent: #00d4ff;">
+        <div class="venture-icon">&#9670;</div>
+        <h3>Thuban</h3>
+        <div class="venture-tagline">Code Health Engine</div>
+        <p>AI wrote the code. Thuban checks the damage. Detects hallucinated APIs, ghost functions, tech debt and architecture drift. 20 commands, zero dependencies, code never leaves your machine.</p>
+        <span class="venture-status status-beta">Launching</span>
+        <br><a href="https://thuban.dev" class="venture-link" target="_blank">thuban.dev &rarr;</a>
+      </div>
+
+      <div class="venture-card animate-in delay-3" style="--card-accent: #7c3aed;">
+        <div class="venture-icon">&#9830;</div>
+        <h3>Mintaka</h3>
+        <div class="venture-tagline">Creative Intelligence OS</div>
+        <p>Watch, critique, generate and optimise advertising at machine speed. Brand Brain learns your business. Ad Critic scores every creative across 8 dimensions. Performance loop compounds learning.</p>
+        <span class="venture-status status-building">Building</span>
+      </div>
+
+      <div class="venture-card animate-in delay-4" style="--card-accent: #f59e0b;">
+        <div class="venture-icon">&#9733;</div>
+        <h3>Saiph</h3>
+        <div class="venture-tagline">AI Venture Foundry</div>
+        <p>Business in a box at machine speed. Drop in a venture spec, Saiph handles domain, DNS, Stripe, trademark, email, ads, analytics. Human clicks 5 OAuth buttons. Saiph runs the business forever.</p>
+        <span class="venture-status status-beta">Beta</span>
+      </div>
+
+      <div class="venture-card animate-in delay-5" style="--card-accent: #ec4899;">
+        <div class="venture-icon">&#9826;</div>
+        <h3>Eve</h3>
+        <div class="venture-tagline">Voice AI Agent</div>
+        <p>Production voice agent for Silverwings. Handles inbound and outbound calls, triage, eligibility assessment, appointment booking. Deepgram STT, Cartesia TTS, sub-second latency.</p>
+        <span class="venture-status status-building">Deploying</span>
+      </div>
+
+      <div class="venture-card animate-in delay-6" style="--card-accent: #06b6d4;">
+        <div class="venture-icon">&#9672;</div>
+        <h3>Navisynth</h3>
+        <div class="venture-tagline">Synthetic Training Engine</div>
+        <p>Two synthetic AIs talking to each other — agent and customer — generating training data, testing scripts, and validating conversation flows at scale. Real conversations, no real humans needed.</p>
+        <span class="venture-status status-building">Building</span>
+      </div>
+
+      <div class="venture-card animate-in delay-1" style="--card-accent: #8b5cf6;">
+        <div class="venture-icon">&#9673;</div>
+        <h3>Praxis Human</h3>
+        <div class="venture-tagline">Human Operating System</div>
+        <p>Converts business doctrine, process knowledge and operational intelligence into structured, governed AI agents. The bridge between how humans think and how machines execute.</p>
+        <span class="venture-status status-building">Building</span>
+      </div>
+
+      <div class="venture-card animate-in delay-2" style="--card-accent: #a78bfa;">
+        <div class="venture-icon">&#8734;</div>
+        <h3>Imaginarium</h3>
+        <div class="venture-tagline">Human Continuity Compiler</div>
+        <p>Captures a human life as structured, consented, retrievable data points. Memory, reasoning, voice, emotional pattern, and presence — preserved beyond biological failure. The most ambitious project in the constellation.</p>
+        <span class="venture-status status-concept">Concept</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Philosophy -->
+<section id="philosophy">
+  <div class="container">
+    <div class="section-label animate-in">Philosophy</div>
+    <h2 class="animate-in delay-1">How We Build</h2>
+
+    <div class="philosophy animate-in delay-2">
+      <blockquote>
+        "We don't wait for the world to understand it. We build the first working version and make the unknown explain itself."
+      </blockquote>
+      <cite>— Craig Lowther, Founder</cite>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem;">
+      <div class="animate-in delay-3">
+        <h3 style="color: var(--accent); margin-bottom: 0.5rem;">Ship, don't pitch</h3>
+        <p style="color: var(--text-dim); font-size: 0.95rem;">Every product works. No slide decks pretending to be software. If it doesn't run, it doesn't exist.</p>
+      </div>
+      <div class="animate-in delay-4">
+        <h3 style="color: var(--accent); margin-bottom: 0.5rem;">Real problems only</h3>
+        <p style="color: var(--text-dim); font-size: 0.95rem;">Every venture starts from operational pain. Silverwings runs a real business with real customers. The AI earns its keep.</p>
+      </div>
+      <div class="animate-in delay-5">
+        <h3 style="color: var(--accent); margin-bottom: 0.5rem;">AI as force multiplier</h3>
+        <p style="color: var(--text-dim); font-size: 0.95rem;">One founder. Multiple ventures. AI doesn't replace the thinking — it multiplies the output of someone who knows what to build.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Submit Idea -->
+<section id="submit" class="submit-section">
+  <div class="container">
+    <div class="section-label animate-in">Got an Idea?</div>
+    <h2 class="animate-in delay-1">Submit a Venture</h2>
+    <p class="animate-in delay-2">
+      Got a problem that needs solving? A business idea that won't shut up?
+      Drop it here. If it passes the Star Chamber, we build it.
+    </p>
+
+    <form class="submit-form animate-in delay-3" onsubmit="handleSubmit(event)">
+      <input type="text" name="name" placeholder="Your name" required>
+      <input type="email" name="email" placeholder="Your email" required>
+      <input type="text" name="venture" placeholder="What's the idea? (one line)" required>
+      <textarea name="problem" placeholder="What problem does it solve? Who has this problem? Why does it matter?" required></textarea>
+      <button type="submit" class="submit-btn">Submit to the Star Chamber</button>
+    </form>
+
+    <p class="animate-in delay-4" style="margin-top: 2rem; font-size: 0.85rem; color: var(--text-dim);">
+      We review every submission. If it's real, we'll be in touch.
+    </p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-logo">ORIONOS.AI</div>
+    <div class="footer-links">
+      <a href="#ventures">Ventures</a>
+      <a href="https://thuban.dev" target="_blank">Thuban</a>
+      <a href="https://silverwingsbenefits.com" target="_blank">Silverwings</a>
+      <a href="#submit">Submit Idea</a>
+    </div>
+    <p style="margin-top: 1.5rem;">&copy; 2026 Orionos.ai &mdash; A Silverwings Benefits Ltd venture</p>
+    <p style="margin-top: 0.5rem; font-size: 0.75rem;">Built by one founder. Powered by AI. Driven by real problems.</p>
+  </div>
+</footer>
+
+<script>
+  // Generate starfield
+  const starfield = document.getElementById('starfield');
+  for (let i = 0; i < 150; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    const size = Math.random() * 2 + 0.5;
+    star.style.width = size + 'px';
+    star.style.height = size + 'px';
+    star.style.left = Math.random() * 100 + '%';
+    star.style.top = Math.random() * 100 + '%';
+    star.style.setProperty('--duration', (Math.random() * 4 + 2) + 's');
+    star.style.setProperty('--min-opacity', '0.1');
+    star.style.setProperty('--max-opacity', (Math.random() * 0.6 + 0.3).toFixed(2));
+    star.style.animationDelay = Math.random() * 4 + 's';
+    starfield.appendChild(star);
+  }
+
+  // Form handler (placeholder — will connect to backend)
+  function handleSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = {
+      name: form.name.value,
+      email: form.email.value,
+      venture: form.venture.value,
+      problem: form.problem.value,
+    };
+
+    // Store locally for now
+    const submissions = JSON.parse(localStorage.getItem('orionos-submissions') || '[]');
+    submissions.push({ ...data, submitted: new Date().toISOString() });
+    localStorage.setItem('orionos-submissions', JSON.stringify(submissions));
+
+    // Show confirmation
+    form.innerHTML = '<p style="color: var(--green); font-size: 1.2rem; font-weight: 600; padding: 2rem;">Received. The Star Chamber will review your submission.</p>';
+  }
+
+  // Animate on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = 'running';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.animate-in').forEach(el => {
+    el.style.animationPlayState = 'paused';
+    observer.observe(el);
+  });
+
+  // Hero animations play immediately
+  document.querySelectorAll('.hero .animate-in').forEach(el => {
+    el.style.animationPlayState = 'running';
+  });
+</script>
+
+</body>
+</html>
